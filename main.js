@@ -32,14 +32,16 @@ $(document).ready(function() {
       }
       // console.log($('').val());
       $(".genere").change(function() {
-        for (var i = 0; i < risposta.response.length; i++) {
-          console.log($('.genere').val());
-          if ($('.genere').val() == risposta.response[i].genre) {
-            console.log('ciao');
-            $('.cds-container .cd').eq(i).show();
+        if ($('.genere').val() == 'All' ) {
+          $('.cds-container .cd').show();
         } else {
-            $('.cds-container .cd').eq(i).hide();
-        }
+          for (var i = 0; i < risposta.response.length; i++) {
+            if ($('.genere').val() == risposta.response[i].genre) {
+              $('.cds-container .cd').eq(i).show();
+          } else {
+              $('.cds-container .cd').eq(i).hide();
+          }
+          }
         }
 
       });
